@@ -60,9 +60,9 @@ Radio Browser serves data in the JSON, XML, CSV, M3U, PLS, XSPF and TTL formats.
 
 Returns a list of stations described with `$tag`.
 
-### ::getStationsByTag($tag, $order = 'name', $reverse = false, $hideBroken = false, $offset = 0, $limit = 100000)
+### Get stations by tag
 
-Returns a list of stations described with `$tag`. 
+`::getStationsByTag($tag)` returns a list of stations described with `$tag`. 
 
 | Parameter | Type   | Default val. | Description                                                  |
 | --------- | ------ | ------------ | ------------------------------------------------------------ |
