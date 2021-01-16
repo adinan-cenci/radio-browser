@@ -48,14 +48,18 @@ All the methods in this section share the following parameters:
 | $offset     | int    | 0            |                                                              |
 | $limit      | int    | 100000       |                                                              |
 
+
+
 ### Get stations by name
 
 The `::getStationsByName($name, $order, $reverse, $hideBroken, $offset, $limit)` method returns stations described with `$name`.
 
 
+
 ### Get stations by exact name
 
-The `::getStationsByExactName($name, $order, $reverse, $hideBroken, $offset, $limit)` method returns stations described with an exact match of `$name`.
+The `::getStationsByExactName($name, $order, $rev...)` method returns stations described with an exact match of `$name`.
+
 
 
 ### Get stations by codec
@@ -63,9 +67,11 @@ The `::getStationsByExactName($name, $order, $reverse, $hideBroken, $offset, $li
 The `::getStationsByCodec($codec, $order, $rev...)` method returns stations described with `$codec`.
 
 
+
 ### Get stations by exact codec
 
 The `::getStationsByExactCodec($codec, $order, $rev...)` method returns stations described with an exact match of `$codec`.
+
 
 
 ### Get stations by country
@@ -73,35 +79,47 @@ The `::getStationsByExactCodec($codec, $order, $rev...)` method returns stations
 The `::getStationsByCountry($country, $order, $rev...)` method returns stations described with `$country`.
 
 
+
 ### Get station by exact country
 
 The `::getStationsByExactCountry($country, $order, $rev...)` method returns stations described with an exact match of `$country`.
+
 
 
 ### Get stations by state
 
 `::getStationsByState($state, $order, $reverse, $hideBroken, $offset, $limit)`.
 
+
+
 ### Get stations by exact state
 
 `::getStationsByExactState($state, $order, $reverse, $hideBroken, $offset, $limit)`.
+
+
 
 ### Get stations by language
 
 `::getStationsByLanguage($language, $order, $reverse, $hideBroken, $offset, $limit)`.
 
+
+
 ### Get stations by exact language
 
 `::getStationsByExactLanguage($language, $order, $reverse, $hideBroken, $offset, $limit)`.
+
+
 
 ### Get stations by tag
 
 The `::getStationsByTag($tag, $order, $rev...)` method returns a list of stations described with `$tag`.
 
 
+
 ### Get stations by exact tag
 
 The `::getStationsByExactTag($tag, $order, $rev...)` method returns a list of stations described with an exact match of `$tag`.
+
 
 
 ## Search station
