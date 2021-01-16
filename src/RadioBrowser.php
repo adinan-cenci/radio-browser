@@ -312,7 +312,7 @@ class RadioBrowser
         return dns_get_record('all.api.radio-browser.info', \DNS_A);
     }
 
-    public static function getServersIps() 
+    public static function getServerIps() 
     {
         $ips     = [];
         $records = self::getDnsRecords();

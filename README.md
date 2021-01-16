@@ -32,87 +32,110 @@ Radio Browser serves data in the JSON, XML, CSV, M3U, PLS, XSPF and TTL formats.
 
 ## Radio Stations
 
-### ::getStationsByUuid(string|array $uuids)
+`::getStationsByUuid(string|array $uuids)
 
-### ::getStationsByUrl(string $url)
+`::getStationsByUrl(string $url)
 
-### ::getStationsByName($name, $order = 'name', $reverse = false, $hideBroken = false, $offset = 0, $limit = 100000)
+## Get stations by ...
 
-### ::getStationsByExactName($name, $order = 'name', $reverse = false, $hideBroken = false, $offset = 0, $limit = 100000)
+All the methods in this section share the following parameters:
 
-### ::getStationsByCodec($codec, $order = 'name', $reverse = false, $hideBroken = false, $offset = 0, $limit = 100000)
+| Parameter   | Type   | Default val. | Description                                                  |
+| ----------- | ------ | ------------ | ------------------------------------------------------------ |
+| $order      | string | 'name'       | Possible values:<br />name, url, homepage, favicon, tags, country, state, language, votes, codec, bitrate, lastcheckok, lastchecktime, clicktimestamp, clickcount, clicktrend, random |
+| $reverse    | bool   | false        | false = Ascending order.<br />true = Descending order.       |
+| $hideBroken | bool   | false        | Do not list stations that failed the connection test.        |
+| $offset     | int    | 0            |                                                              |
+| $limit      | int    | 100000       |                                                              |
 
-### ::getStationsByExactCodec($codec, $order = 'name', $reverse = false, $hideBroken = false, $offset = 0, $limit = 100000)
+### Get stations by name
 
-### ::getStationsByCountry($country, $order = 'name', $reverse = false, $hideBroken = false, $offset = 0, $limit = 100000)
+The `::getStationsByName($name, $order, $reverse, $hideBroken, $offset, $limit)` method returns stations described with `$name`.
 
-### ::getStationsByExactCountry($country, $order = 'name', $reverse = false, $hideBroken = false, $offset = 0, $limit = 100000)
+### Get stations by exact name
 
-### ::getStationsByState($state, $order = 'name', $reverse = false, $hideBroken = false, $offset = 0, $limit = 100000)
+The `::getStationsByExactName($name, $order, $reverse, $hideBroken, $offset, $limit)` method returns stations described with an exact match of `$name`.
 
-### ::getStationsByExactState($state, $order = 'name', $reverse = false, $hideBroken = false, $offset = 0, $limit = 100000)
+### Get stations by codec
 
-### ::getStationsByLanguage($language, $order = 'name', $reverse = false, $hideBroken = false, $offset = 0, $limit = 100000)
+The `::getStationsByCodec($codec, $order, $rev...)` method returns stations described with `$codec`.
 
-### ::getStationsByExactLanguage($language, $order = 'name', $reverse = false, $hideBroken = false, $offset = 0, $limit = 100000)
+### Get stations by exact codec
 
-### ::getStationsByTag($tag, $order = 'name', $reverse = false, $hideBroken = false, $offset = 0, $limit = 100000)
+The `::getStationsByExactCodec($codec, $order, $rev...)` method returns stations described with an exact match of `$codec`.
 
-Returns a list of stations described with `$tag`.
+### Get stations by country
+
+The `::getStationsByCountry($country, $order, $rev...)` method returns stations described with `$country`.
+
+### Get station by exact country
+
+The `::getStationsByExactCountry($country, $order, $rev...)` method returns stations described with an exact match of `$country`.
+
+### Get stations by state
+
+`::getStationsByState($state, $order, $reverse, $hideBroken, $offset, $limit)`
+
+### Get stations by exact state
+
+`::getStationsByExactState($state, $order, $reverse, $hideBroken, $offset, $limit)`
+
+### Get stations by language
+
+`::getStationsByLanguage($language, $order, $reverse, $hideBroken, $offset, $limit)`
+
+### Get stations by exact language
+
+`::getStationsByExactLanguage($language, $order, $reverse, $hideBroken, $offset, $limit)`
 
 ### Get stations by tag
 
-`::getStationsByTag($tag)` returns a list of stations described with `$tag`. 
+`::getStationsByTag($tag, $order, $reverse, $hideBroken, $offset, $limit)` returns a list of stations described with `$tag`.
 
-| Parameter | Type   | Default val. | Description                                                  |
-| --------- | ------ | ------------ | ------------------------------------------------------------ |
-| $tag      | string |              |                                                              |
-| $order    | string | 'name'       | Possible values:<br />name, url, homepage, favicon, tags, country, state, language, votes, codec, bitrate, lastcheckok, lastchecktime, clicktimestamp, clickcount, clicktrend, random |
-| $reverse  | bool   | false        | false = Ascending order<br />true = Descending order         |
-| $offset   | int    | 0            |                                                              |
-| $limit    | int    | 100000       |                                                              |
+### Get stations by exact tag
 
+`::getStationsByExactTag($tag, $order, $reverse, $hideBroken, $offset, $limit)
 
+## Search station
 
-
-
-### ::getStationsByExactTag($tag, $order = 'name', $reverse = false, $hideBroken = false, $offset = 0, $limit = 100000)
-
-### ::searchStation(array $customParameters)
+`::searchStation(array $customParameters)`
 
 ### ::getStations()
 
+
 ## General Information
 
-### ::getCountries()
+### Get countries
+`::getCountries()`
 
-### ::getCountryCodes()
+### Get country codes
+`::getCountryCodes()`
 
-### ::getCodecs()
+### Get codecs
+`::getCodecs()`
 
-### ::getStates()
+### Get states
+`::getStates()`
 
-### ::getLanguages()
+### Get languages
+`::getLanguages()`
 
-### ::getTags()
+### Get tags
+`::getTags()`
 
 ## Servers
 
-### ::getDnsRecords()
+### Get DNS records
+`::getDnsRecords()` returns DNS information on available servers.
 
-Returns DNS information on available servers.
+### Get server IPs
+`::getServerIps()` returns an array of IPs of available servers.
 
-### ::getServersIps()
+### Get servers
+`::getServers()` returns an array of URLs of available servers.
 
-Returns an array of IPs of available servers.
-
-### ::getServers()
-
-Returns an array of URLs of available servers.
-
-### ::pickAServer()
-
-Returns a random URL to an available server.
+### Pick a server
+The `::pickAServer()` static method returns a random server's URL.
 
 
 ## License
