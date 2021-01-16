@@ -48,7 +48,53 @@ All the methods in this section share the following parameters:
 | $offset     | int    | 0            |                                                              |
 | $limit      | int    | 100000       |                                                              |
 
+All of them will also return an array containing the matched stations:
+
+```json
+[
+    {
+        "changeuuid":"960e57c8-0601-11e8-ae97-52543be04c81",
+        "stationuuid":"960e57c5-0601-11e8-ae97-52543be04c81",
+        "name":"SRF 1",
+        "url":"http://stream.srg-ssr.ch/m/drs1/mp3_128",
+        "url_resolved":"http://stream.srg-ssr.ch/m/drs1/mp3_128",
+        "homepage":"http://ww.srf.ch/radio-srf-1",
+        "favicon":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Radio_SRF_1.svg/205px-Radio_SRF_1.svg.png",
+        "tags":"srg ssr,public radio",
+        "country":"Switzerland",
+        "countrycode":"CH",
+        "state":"",
+        "language":"german",
+        "votes":0,
+        "lastchangetime":"2019-12-12 18:37:02",
+        "codec":"MP3",
+        "bitrate":128,
+        "hls":0,
+        "lastcheckok":1,
+        "lastchecktime":"2020-01-09 18:16:35",
+        "lastcheckoktime":"2020-01-09 18:16:35",
+        "lastlocalchecktime":"2020-01-08 23:18:38",
+        "clicktimestamp":"",
+        "clickcount":0,
+        "clicktrend":0
+    }, 
+    {
+        "changeuuid":"e57c9608-0601-11e8-ae97-52543be04c81",
+        "stationuuid":"7c5960e5-0601-11e8-ae97-52543be04c81",
+        "name":"Radio Metal"
+        ...
+        ...
+        ...
+    }
+    ...
+    ...
+    ...
+]
+```
+
 <br><br>
+
+
 
 ### Get stations by name
 The `::getStationsByName($name, $order, $reverse, $hideBroken, $offset, $limit)` method returns stations described with `$name`.
