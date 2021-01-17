@@ -47,7 +47,7 @@ All the methods in this section share the following parameters:
 
 | Parameter   | Type   | Default | Description                                                  |
 | ----------- | ------ | ------- | ------------------------------------------------------------ |
-| $order      | string | 'name'  | Possible values:<br />name, url, homepage, favicon, tags, country, state, language, votes, codec, bitrate, lastcheckok, lastchecktime, clicktimestamp, clickcount, clicktrend, random |
+| $order      | string | 'name'  | Possible values:<br />name, url, homepage, favicon, tags, country, state, language, votes, codec, bitrate, lastcheckok, lastchecktime, clicktimestamp, clickcount, clicktrend, random. |
 | $reverse    | bool   | false   | false = Ascending order.<br />true = Descending order.       |
 | $hideBroken | bool   | false   | Do not list stations that failed the connection test.        |
 | $offset     | int    | 0       |                                                              |
@@ -162,10 +162,39 @@ The `::getStationsByExactTag($tag, $order, $rev...)` method returns a list of st
 
 <br><br>
 
-## Search station
-`::searchStation(array $customParameters)`
 
-### ::getStations()
+### Just get all stations
+The `::getStations()` method will return all stations.
+
+<br><br>
+
+## Search station
+The `::searchStation($searchTerms)` method allow us to fine grain our search.
+It receives a single associative array with the following keys available, all of which are optional:
+
+| Key           | Type          | Default | Description                                                  |
+| ------------- | ------------- | ------- | ------------------------------------------------------------ |
+| name          | string        | null    |                                                              |
+| nameExact     | bool          | false   |                                                              |
+| country       | string        | null    |                                                              |
+| countryExact  | bool          | false   |                                                              |
+| countrycode   | string        | null    |                                                              |
+| state         | string        | null    |                                                              |
+| stateExact    | bool          | false   |                                                              |
+| language      | string        | null    |                                                              |
+| languageExact | bool          | false   |                                                              |
+| tag           | string        | null    |                                                              |
+| tagExact      | bool          | false   |                                                              |
+| tagList       | string\|array | null    | A list of tags, either an array or a comma separated string. |
+| codec         | string        | null    |                                                              |
+| bitrateMin    | int           | 0       |                                                              |
+| bitrateMax    | int           | 1000000 |                                                              |
+| order         | string        | name    | Possible values:<br />name, url, homepage, favicon, tags, country, state, language, votes, codec, bitrate, lastcheckok, lastchecktime, clicktimestamp, clickcount, clicktrend, random. |
+| reverse       | bool          | false   |                                                              |
+| offset        | int           | 0       |                                                              |
+| limit         | int           | 100000  |                                                              |
+
+<br><br>
 
 ## General Information
 

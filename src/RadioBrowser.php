@@ -141,7 +141,7 @@ class RadioBrowser
         return $this->getStationsBy($this->server.$this->format.'/stations/bytagexact/'.$tag, $order, $reverse, $hideBroken, $offset, $limit);
     }
 
-    public function searchStation($customParameters) 
+    public function searchStation($searchTerms) 
     {
         $defaultParameters = [
             'name'          => null, 
@@ -165,7 +165,7 @@ class RadioBrowser
             'limit'         => 100000
         ];
 
-        $parameters = array_merge($defaultParameters, $customParameters);
+        $parameters = array_merge($defaultParameters, $searchTerms);
 
         $parameters['nameExact']    = self::stringBoolean($parameters['nameExact']);
         $parameters['countryExact'] = self::stringBoolean($parameters['countryExact']);
