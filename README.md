@@ -16,41 +16,46 @@ echo $stations;
 
 ## Instantiating
 
-The constructor takes two optional parameters:
+| Parameter | Type         | Default                             | Description                                                  |
+| --------- | ------------ | ----------------------------------- | ------------------------------------------------------------ |
+| $server   | string\|bool | https://de1.api.radio-browser.info/ | A Radio Browser server, it defaults to "'https://de1.api.radio-browser.info/", if false is informed, the object will pick a random server, see the server section for more information. |
+| $format   | string       | json                                | The format the data must be served, possible values: json, xml, csv, m3u, pls, xspf, ttl |
 
-**Server**: It defaults to "'https://de1.api.radio-browser.info/", if false is informed, the object will pick a random server, see [SERVERS] for more information.
-
-**Format**: Defaults to "json"
-
-### Servers
-
-RadioBrowser::getServers() returns an array with available servers.
-
-### Formats
-
-Radio Browser serves data in the JSON, XML, CSV, M3U, PLS, XSPF and TTL formats.
+<br><br>
 
 ## Radio Stations
 
-`::getStationsByUuid(string|array $uuids)
+### Get stations by UUID
 
-`::getStationsByUrl(string $url)
+The `::getStationsByUuid($uuids)` returns stations by their unique identifiers.
+
+| Parameter | Type          | Description                                                  |
+| --------- | ------------- | ------------------------------------------------------------ |
+| $uuids    | string\|array | A list of uuids, either an array, or an comma separated string. |
+
+<br><br>
+
+### Get stations by URL
+
+The `::getStationsByUrl($url)`method returns stations by their web page.
+
+<br><br>
 
 ## Get stations by ...
 
 All the methods in this section share the following parameters:
 
-| Parameter   | Type   | Default val. | Description                                                  |
-| ----------- | ------ | ------------ | ------------------------------------------------------------ |
-| $order      | string | 'name'       | Possible values:<br />name, url, homepage, favicon, tags, country, state, language, votes, codec, bitrate, lastcheckok, lastchecktime, clicktimestamp, clickcount, clicktrend, random |
-| $reverse    | bool   | false        | false = Ascending order.<br />true = Descending order.       |
-| $hideBroken | bool   | false        | Do not list stations that failed the connection test.        |
-| $offset     | int    | 0            |                                                              |
-| $limit      | int    | 100000       |                                                              |
+| Parameter   | Type   | Default | Description                                                  |
+| ----------- | ------ | ------- | ------------------------------------------------------------ |
+| $order      | string | 'name'  | Possible values:<br />name, url, homepage, favicon, tags, country, state, language, votes, codec, bitrate, lastcheckok, lastchecktime, clicktimestamp, clickcount, clicktrend, random |
+| $reverse    | bool   | false   | false = Ascending order.<br />true = Descending order.       |
+| $hideBroken | bool   | false   | Do not list stations that failed the connection test.        |
+| $offset     | int    | 0       |                                                              |
+| $limit      | int    | 100000  |                                                              |
 
 All of them will also return an array containing the matched stations:
 
-```json
+```
 [
     {
         "changeuuid":"960e57c8-0601-11e8-ae97-52543be04c81",
