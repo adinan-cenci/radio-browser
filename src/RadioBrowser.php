@@ -14,7 +14,7 @@ class RadioBrowser
             $server = self::pickAServer();
         }
 
-        $this->server = $server;
+        $this->server = rtrim($server, '/').'/';
 
         $this->format = $format;
     }
@@ -174,6 +174,10 @@ class RadioBrowser
         $parameters['tagExact']     = self::stringBoolean($parameters['tagExact']);
         $parameters['reverse']      = self::stringBoolean($parameters['reverse']);
 
+        if ($parameters['tag']) {
+            $parameters['tag']      = is_array($parameters['tag']) ? implode(',', $parameters['tag']) : $parameters['tag'];
+        }
+
         $url = $this->server.$this->format.'/stations/search';
 
         return $this->fetchBody($url, $parameters);
@@ -328,7 +332,7 @@ class RadioBrowser
     {
         $servers = [];
 
-        foreach (self::getServersIps() as $ip) {
+        foreach (self::getServerIps() as $ip) {
             $servers[] = gethostbyaddr($ip);
         }
 

@@ -12,4 +12,6 @@ require '../vendor/autoload.php';
 
 //-----------------------------
 
+echo '<pre>';
 echo RadioBrowser::pickAServer();
+echo '</pre>';

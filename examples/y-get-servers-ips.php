@@ -13,5 +13,5 @@ require '../vendor/autoload.php';
 //-----------------------------
 
 echo '<pre>';
-print_r(RadioBrowser::getServersIps());
+print_r(RadioBrowser::getServerIps());
 echo '<pre>';

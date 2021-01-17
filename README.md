@@ -236,13 +236,13 @@ The `::getTags($filter, $ord...)` method returns a list of tags and a count of s
 
 ### Get country codes
 
-The `::getCountryCodes()` method returns a list of country codes and a count of stations described with them.
+The `::getCountryCodes($filter, $ord...)` method returns a list of country codes and a count of stations described with them.
 
 <br><br>
 
 ### Get countries
 
-The `::getCountries()` method returns a list of countries and a count of stations described with them.
+The `::getCountries($filter, $ord...)` method returns a list of countries and a count of stations described with them.
 
 <br><br>
 
@@ -263,16 +263,24 @@ The `::getStates($filter, $country, $order, $reverse, $hideBroken)` return a lis
 ## Servers
 
 ### Get DNS records
-The The `::getDnsRecords()` method returns DNS information on available servers.
+The The `::getDnsRecords()` static method returns DNS information on available servers.
+
+<br><br>
 
 ### Get server IPs
-The `::getServerIps()` method returns an array of IPs of available servers.
+The `::getServerIps()` static method returns an array of IPs of available servers.
+
+<br><br>
 
 ### Get servers
-The `::getServers()` method returns an array of URLs of available servers.
+The `::getServers()` static method returns an array of URLs of available servers.
+
+<br><br>
 
 ### Pick a server
 The `::pickAServer()` static method returns a random server's URL.
+
+<br><br>
 
 
 ## License
