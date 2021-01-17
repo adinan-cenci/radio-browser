@@ -34,7 +34,7 @@ class RadioBrowser
         return $this->standardRequest($this->server.$this->format.'/codecs/'.$filter, $order, $reverse, $hideBroken);
     }
 
-    public function getStates($filter = '', $order = 'name', $reverse = false, $hideBroken = false, $country = null) 
+    public function getStates($filter = '', $country = null, $order = 'name', $reverse = false, $hideBroken = false) 
     {
         $url = $country ?
             $this->server.$this->format.'/states/'.$country.'/'.$filter : 

@@ -190,31 +190,75 @@ It receives a single associative array with the following keys available, all of
 | bitrateMin    | int           | 0       |                                                              |
 | bitrateMax    | int           | 1000000 |                                                              |
 | order         | string        | name    | Possible values:<br />name, url, homepage, favicon, tags, country, state, language, votes, codec, bitrate, lastcheckok, lastchecktime, clicktimestamp, clickcount, clicktrend, random. |
-| reverse       | bool          | false   |                                                              |
+| reverse       | bool          | false   | false = Ascending order.<br />true = Descending order.       |
 | offset        | int           | 0       |                                                              |
 | limit         | int           | 100000  |                                                              |
 
 <br><br>
 
+## Ranking
+
+### Listeners
+
+The `::clickStation($stationUuid)` method must be invoked every time a user starts playing a stream, this helps Radio Browser sort how popular each station is. **IMPORTANT**: Every call from the same IP address and for the same station only gets counted once per day.
+
+### Voting
+
+The `::voteStation($stationUuid)` method increases the vote count by one. **IMPORTANT**: it can only be called once every 10 minutes for the same radio stations, from the same IP.
+
+<br><br>
+
 ## General Information
 
-### Get countries
-`::getCountries()`
+The methods bellow share the following parameters:
 
-### Get country codes
-`::getCountryCodes()`
+| Parameter   | Type   | Default | Description                                            |
+| ----------- | ------ | ------- | ------------------------------------------------------ |
+| $filter     | string |         | A string to be matched against.                        |
+| $order      | string | name    | Possible values: name, stationcount.                   |
+| $reverse    | bool   | false   | false = Ascending order.<br />true = Descending order. |
+| $hideBroken | bool   | false   | Do not count stations that failed the connection test. |
 
 ### Get codecs
-`::getCodecs()`
+The `::getCodecs($filter, $order, $reverse, $hideBroken)` method returns a list of codecs and a count of stations using them.
 
-### Get states
-`::getStates()`
+<br><br>
 
 ### Get languages
-`::getLanguages()`
+The `::getLanguages($filter, $ord...)` method returns a list of languages and a count of stations in this language.
+
+<br><br>
 
 ### Get tags
-`::getTags()`
+The `::getTags($filter, $ord...)` method returns a list of tags and a count of stations described with them.
+
+<br><br>
+
+### Get country codes
+
+The `::getCountryCodes()` method returns a list of country codes and a count of stations described with them.
+
+<br><br>
+
+### Get countries
+
+The `::getCountries()` method returns a list of countries and a count of stations described with them.
+
+<br><br>
+
+### Get states
+
+The `::getStates($filter, $country, $order, $reverse, $hideBroken)` return a list of states and a count of stations described with them.
+
+| Parameter   | Type   | Default | Description                                            |
+| ----------- | ------ | ------- | ------------------------------------------------------ |
+| $filter     | string |         | A string to be matched against.                        |
+| $country    | string | null    | The country that the state belongs to.                 |
+| $order      | string | name    | Possible values: name, stationcount.                   |
+| $reverse    | bool   | false   | false = Ascending order.<br />true = Descending order. |
+| $hideBroken | bool   | false   | Do not count stations that failed the connection test. |
+
+<br><br>
 
 ## Servers
 
