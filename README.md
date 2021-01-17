@@ -41,6 +41,12 @@ The `::getStationsByUrl($url)`method returns stations by their web page.
 
 <br><br>
 
+### Just get all stations
+
+The `::getStations()` method will return all stations.
+
+<br><br>
+
 ## Get stations by ...
 
 All the methods in this section share the following parameters:
@@ -132,23 +138,23 @@ The `::getStationsByExactCountry($country, $order, $rev...)` method returns stat
 <br><br>
 
 ### Get stations by state
-`::getStationsByState($state, $order, $reverse, $hideBroken, $offset, $limit)`.
+`::getStationsByState($state, $order, $rev...)`.
 
 <br><br>
 
 ### Get stations by exact state
 
-`::getStationsByExactState($state, $order, $reverse, $hideBroken, $offset, $limit)`.
+`::getStationsByExactState($state, $order, $rev...)`.
 
 <br><br>
 
 ### Get stations by language
-`::getStationsByLanguage($language, $order, $reverse, $hideBroken, $offset, $limit)`.
+`::getStationsByLanguage($language, $order, $rev...)`.
 
 <br><br>
 
 ### Get stations by exact language
-`::getStationsByExactLanguage($language, $order, $reverse, $hideBroken, $offset, $limit)`.
+`::getStationsByExactLanguage($language, $order, $rev...)`.
 
 <br><br>
 
@@ -159,12 +165,6 @@ The `::getStationsByTag($tag, $order, $rev...)` method returns a list of station
 
 ### Get stations by exact tag
 The `::getStationsByExactTag($tag, $order, $rev...)` method returns a list of stations described with an exact match of `$tag`.
-
-<br><br>
-
-
-### Just get all stations
-The `::getStations()` method will return all stations.
 
 <br><br>
 
