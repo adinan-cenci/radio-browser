@@ -13,7 +13,7 @@ require '../vendor/autoload.php';
 //-----------------------------
 
 $browser    = new RadioBrowser();
-$tag        = 'Metal';
+$tag        = 'power metal';
 $orderBy    = 'clickcount';
 $reverse    = true; // ( decrescent )
 $hideBroken = false;

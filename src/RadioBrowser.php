@@ -131,13 +131,13 @@ class RadioBrowser
 
     public function getStationsByTag($tag, $order = 'name', $reverse = false, $hideBroken = false, $offset = 0, $limit = 100000) 
     {
-        $tag = rawurlencode( trim($tag, '#') );
+        $tag = rawurlencode( $tag );
         return $this->getStationsBy($this->server.$this->format.'/stations/bytag/'.$tag, $order, $reverse, $hideBroken, $offset, $limit);
     }
 
     public function getStationsByExactTag($tag, $order = 'name', $reverse = false, $hideBroken = false, $offset = 0, $limit = 100000) 
     {
-        $tag = rawurlencode( trim($tag, '#') );
+        $tag = rawurlencode( $tag );
         return $this->getStationsBy($this->server.$this->format.'/stations/bytagexact/'.$tag, $order, $reverse, $hideBroken, $offset, $limit);
     }
 
