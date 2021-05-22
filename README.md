@@ -1,5 +1,5 @@
 # Radio Browser
-A library to fetch data from the [radio-browser.info](https://radio-browser.info) catalog of Internet radio stations.
+A library to fetch data from the [radio-browser.info](https://www.radio-browser.info/#/) catalog of Internet radio stations.
 
 ```php
 use \AdinanCenci\RadioBrowser\RadioBrowser;
