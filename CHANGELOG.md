@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 The `RadioBrowser` class is now a wrapper for the new `RadioBrowserApi` class.
-`RadioBrowserApi` is the general one, its methods return strings, `RadioBrowser` methods returns arrays.
+`RadioBrowserApi` is the general one, its methods return strings, `RadioBrowser` methods return arrays.
 
 ### Added
 - RadioBrowserApi class
