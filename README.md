@@ -24,7 +24,7 @@ See some examples in the "examples" folder:
 - [Get stations by country](examples/d-get-stations-by-country.php)
 - [Get stations by clicks](examples/e-get-stations-by-clicks.php)
 - [Get stations by votes](examples/f-get-stations-by-votes.php)
-- [Get stations by in XML format](examples/g-get-stations-in-xml-format.php)
+- [Get stations in XML format](examples/g-get-stations-in-xml-format.php)
 - [Get servers IPs](examples/y-get-servers-ips.php)
 
 <br><br>
