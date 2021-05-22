@@ -13,15 +13,13 @@ require '../vendor/autoload.php';
 //-----------------------------
 
 $browser    = new RadioBrowser();
-$filter     = 'Campinas';
-$country    = '';
-$orderBy    = 'name';
+$tag        = 'power metal';
+$orderBy    = 'clickcount';
 $reverse    = true; // ( decrescent )
 $hideBroken = false;
 $offset     = 0;
 $limit      = 50;
-$json       = $browser->getStates($filter, $orderBy, $reverse, $hideBroken, $country);
-$data       = json_decode($json, true);
+$data       = $browser->getStationsByTag($tag, $orderBy, $reverse, $hideBroken, $offset, $limit);
 
 echo '<pre>';
 print_r($data);

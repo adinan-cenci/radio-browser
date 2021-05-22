@@ -13,14 +13,9 @@ require '../vendor/autoload.php';
 //-----------------------------
 
 $browser    = new RadioBrowser();
-$tag        = 'power metal';
-$orderBy    = 'clickcount';
-$reverse    = true; // ( decrescent )
-$hideBroken = false;
 $offset     = 0;
-$limit      = 50;
-$json       = $browser->getStationsByTag($tag, $orderBy, $reverse, $hideBroken, $offset, $limit);
-$data       = json_decode($json, true);
+$limit      = 10;
+$data       = $browser->getStationsByClicks($offset, $limit);
 
 echo '<pre>';
 print_r($data);

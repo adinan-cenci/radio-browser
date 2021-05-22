@@ -1,4 +1,8 @@
 <?php 
+/**
+ * Picks a random server
+ */
+
 use AdinanCenci\RadioBrowser\RadioBrowser;
 
 //-----------------------------

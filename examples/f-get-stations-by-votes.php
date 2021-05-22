@@ -1,8 +1,4 @@
 <?php 
-/**
- * List available servers IPs
- */
-
 use AdinanCenci\RadioBrowser\RadioBrowser;
 
 //-----------------------------
@@ -16,6 +12,11 @@ require '../vendor/autoload.php';
 
 //-----------------------------
 
+$browser    = new RadioBrowser();
+$offset     = 0;
+$limit      = 10;
+$data       = $browser->getStationsByVotes($offset, $limit);
+
 echo '<pre>';
-print_r(RadioBrowser::getServerIps());
-echo '<pre>';
+print_r($data);
+echo '</pre>';

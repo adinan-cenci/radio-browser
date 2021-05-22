@@ -6,20 +6,51 @@ use \AdinanCenci\RadioBrowser\RadioBrowser;
 
 $browser          = new RadioBrowser();
 $tag              = 'metal';
-$orderBy          = 'stationcount';
+$orderBy          = 'name';
 $descendingOrder  = true;
 
 $stations         = $browser->getStationsByTag($tag, $orderBy, $descendingOrder);
 
-echo $stations;
+print_r($stations);
 ```
 
-## Instantiating
+<br><br>
+
+## Examples
+See some examples in the "examples" folder:
+- [Get tags](examples/a-get-tags.php)
+- [Get states](examples/b-get-states.php)
+- [Get stations by tag](examples/c-get-stations-by-tag.php)
+- [Get stations by country](examples/d-get-stations-by-country.php)
+- [Get stations by clicks](examples/e-get-stations-by-clicks.php)
+- [Get stations by votes](examples/f-get-stations-by-votes.php)
+- [Get stations by in XML format](examples/g-get-stations-in-xml-format.php)
+- [Get servers IPs](examples/y-get-servers-ips.php)
+
+<br><br>
+
+## Classes and instantiating
+
+### \AdinanCenci\RadioBrowser\RarioBrowserApi
+
+All the methods will return strings formated accordingly to the `$format` property.
 
 | Parameter | Type         | Default                             | Description                                                  |
 | --------- | ------------ | ----------------------------------- | ------------------------------------------------------------ |
 | $server   | string\|bool | https://de1.api.radio-browser.info/ | A Radio Browser server, it defaults to "'https://de1.api.radio-browser.info/", if false is informed, the object will pick a random server, see the server section for more information. |
-| $format   | string       | json                                | The format the data must be served, possible values: json, xml, csv, m3u, pls, xspf, ttl |
+| $format   | string       | json                                | The format the data must be served, possible values: json, xml, csv, m3u, pls, xspf, ttl. |
+
+<br><br>
+
+### \AdinanCenci\RadioBrowser\RadioBrowser
+
+`RadioBrowser` is a convenient wrapper for `RarioBrowserApi` class, it has the same methods of the latter, 
+but instead of returning strings, either arrays or stdObjects will be returned, depending on the `$associative` property.
+
+| Parameter    | Type         | Default                             | Description                                                  |
+| ------------ | ------------ | ----------------------------------- | ------------------------------------------------------------ |
+| $server      | string\|bool | https://de1.api.radio-browser.info/ | A Radio Browser server, it defaults to "'https://de1.api.radio-browser.info/", if false is informed, the object will pick a random server, see the server section for more information. |
+| $associative | bool         | true                                | If true, the methods will return associative arrays, stdObjects otherwise. |
 
 <br><br>
 
@@ -27,7 +58,7 @@ echo $stations;
 
 ### Get stations by UUID
 
-The `::getStationsByUuid($uuids)` returns stations by their unique identifiers.
+The `::getStationsByUuid($uuids)` search stations with the specified ids.
 
 | Parameter | Type          | Description                                                  |
 | --------- | ------------- | ------------------------------------------------------------ |
@@ -37,7 +68,43 @@ The `::getStationsByUuid($uuids)` returns stations by their unique identifiers.
 
 ### Get stations by URL
 
-The `::getStationsByUrl($url)`method returns stations by their web page.
+The `::getStationsByUrl($url)`method search stations by their web page.
+
+<br><br>
+
+### Get stations by clicks
+
+The `::getStationsByClicks($offset, $limit, $hideBroken)` method returns the most sintonized stations.
+
+<br><br>
+
+### Get stations by votes
+
+The `::getStationsByVotes($offset, $limit, $hideBroken)` method returns the most voted stations.
+
+<br><br>
+
+### Get stations by recent clicks
+
+The `::getStationsByRecentClicks($offset, $limit, $hideBroken)` method returns the currently most popular stations.
+
+<br><br>
+
+### Get stations last changed
+
+The `::getStationsByLastChange($offset, $limit, $hideBroken)` method returns the stations last updated.
+
+<br><br>
+
+### Get older version of stations
+
+The `::getStationOlderVersions($lastChangeUuid, $limit)` method returns old versions of stations from the last 30 days.
+
+<br><br>
+
+### Get broken stations
+
+The `::getBrokenStations($offset, $limit)` method returns stations that did not pass the connection test.
 
 <br><br>
 
@@ -59,53 +126,7 @@ All the methods in this section share the following parameters:
 | $offset     | int    | 0       |                                                              |
 | $limit      | int    | 100000  |                                                              |
 
-All of them will also return an array containing the matched stations:
-
-```
-[
-    {
-        "changeuuid":"960e57c8-0601-11e8-ae97-52543be04c81",
-        "stationuuid":"960e57c5-0601-11e8-ae97-52543be04c81",
-        "name":"SRF 1",
-        "url":"http://stream.srg-ssr.ch/m/drs1/mp3_128",
-        "url_resolved":"http://stream.srg-ssr.ch/m/drs1/mp3_128",
-        "homepage":"http://ww.srf.ch/radio-srf-1",
-        "favicon":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Radio_SRF_1.svg/205px-Radio_SRF_1.svg.png",
-        "tags":"srg ssr,public radio",
-        "country":"Switzerland",
-        "countrycode":"CH",
-        "state":"",
-        "language":"german",
-        "votes":0,
-        "lastchangetime":"2019-12-12 18:37:02",
-        "codec":"MP3",
-        "bitrate":128,
-        "hls":0,
-        "lastcheckok":1,
-        "lastchecktime":"2020-01-09 18:16:35",
-        "lastcheckoktime":"2020-01-09 18:16:35",
-        "lastlocalchecktime":"2020-01-08 23:18:38",
-        "clicktimestamp":"",
-        "clickcount":0,
-        "clicktrend":0
-    }, 
-    {
-        "changeuuid":"e57c9608-0601-11e8-ae97-52543be04c81",
-        "stationuuid":"7c5960e5-0601-11e8-ae97-52543be04c81",
-        "name":"Radio Metal"
-        ...
-        ...
-        ...
-    }
-    ...
-    ...
-    ...
-]
-```
-
 <br><br>
-
-
 
 ### Get stations by name
 The `::getStationsByName($name, $order, $reverse, $hideBroken, $offset, $limit)` method returns stations described with `$name`.
@@ -128,28 +149,28 @@ The `::getStationsByExactCodec($codec, $order, $rev...)` method returns stations
 <br><br>
 
 ### Get stations by country
-The `::getStationsByCountry($country, $order, $rev...)` method returns stations described with `$country`.
+`::getStationsByCountry($country, $order, $rev...)`
 
 <br><br>
 
 ### Get station by exact country
-The `::getStationsByExactCountry($country, $order, $rev...)` method returns stations described with an exact match of `$country`.
+`::getStationsByExactCountry($country, $order, $rev...)`
 
 <br><br>
 
 ### Get stations by state
-`::getStationsByState($state, $order, $rev...)`.
+`::getStationsByState($state, $order, $rev...)`
 
 <br><br>
 
 ### Get stations by exact state
 
-`::getStationsByExactState($state, $order, $rev...)`.
+`::getStationsByExactState($state, $order, $rev...)`
 
 <br><br>
 
 ### Get stations by language
-`::getStationsByLanguage($language, $order, $rev...)`.
+`::getStationsByLanguage($language, $order, $rev...)` 
 
 <br><br>
 
@@ -159,12 +180,12 @@ The `::getStationsByExactCountry($country, $order, $rev...)` method returns stat
 <br><br>
 
 ### Get stations by tag
-The `::getStationsByTag($tag, $order, $rev...)` method returns a list of stations described with `$tag`.
+`::getStationsByTag($tag, $order, $rev...)`
 
 <br><br>
 
 ### Get stations by exact tag
-The `::getStationsByExactTag($tag, $order, $rev...)` method returns a list of stations described with an exact match of `$tag`.
+`::getStationsByExactTag($tag, $order, $rev...)`
 
 <br><br>
 
@@ -193,6 +214,27 @@ It receives a single associative array with the following keys available, all of
 | reverse       | bool          | false   | false = Ascending order.<br />true = Descending order.       |
 | offset        | int           | 0       |                                                              |
 | limit         | int           | 100000  |                                                              |
+
+<br><br>
+
+## Add station
+The `::addStation($name, $url, $homePage, $favIcon, $countryCode, $state, $language, $tags, $geoLat, $geoLong)` method allow 
+us to insert new stations.
+
+It receives a single associative array with the following keys available, all of which are optional:
+
+| Key           | Type          | Default | Description                                                  |
+| ------------- | ------------- | ------- | ------------------------------------------------------------ |
+| $name         | string        | null    | MANDATORY, the name of the radio station. Max 400 chars.     |
+| $rl           | string        | null    | MANDATORY, the URL of the station.                           |
+| $homePage     | string        | null    | the homepage URL of the station.                             |
+| $favIcon      | string        | null    | the URL of an image file (jpg or png).                       |
+| $countryCode  | string        | null    | The 2 letter countrycode of the country where the radio station is located. |
+| $state        | string        | null    | The name of the part of the country where the station is located. |
+| $language     | string        | null    | The main language used in spoken text parts of the radio station. |
+| $tags         | string        | null    | A list of tags separated by commas to describe the station.  |
+| $geoLat       | string        | null    | The latitude of the stream location.                         |
+| $geoLong      | string        | null    | The longitude of the stream location.                        |
 
 <br><br>
 
@@ -262,8 +304,28 @@ The `::getStates($filter, $country, $order, $reverse, $hideBroken)` return a lis
 
 ## Servers
 
+### Get the server's stats
+`::getServerStats()`
+
+<br><br>
+
+### Get the server's mirrors
+`::getServerMirrors()`
+
+<br><br>
+
+### Get the server's configurations
+`::getServerConfig()`
+
+<br><br>
+
+### Get the server's metrics
+`::getServerMetrics()`
+
+<br><br>
+
 ### Get DNS records
-The The `::getDnsRecords()` static method returns DNS information on available servers.
+The `::getDnsRecords()` static method returns DNS information on available servers.
 
 <br><br>
 
@@ -281,7 +343,6 @@ The `::getServers()` static method returns an array of URLs of available servers
 The `::pickAServer()` static method returns a random server's URL.
 
 <br><br>
-
 
 ## License
 MIT

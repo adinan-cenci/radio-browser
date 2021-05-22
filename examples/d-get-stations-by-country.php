@@ -13,10 +13,13 @@ require '../vendor/autoload.php';
 //-----------------------------
 
 $browser    = new RadioBrowser();
-$filter     = 'metal';
-$orderBy    = 'stationcount';
+$country    = 'Brazil';
+$orderBy    = 'clickcount';
 $reverse    = true; // ( decrescent )
-$data       = $browser->getTags($filter, $orderBy, $reverse);
+$hideBroken = false;
+$offset     = 0;
+$limit      = 10;
+$data       = $browser->getStationsByCountry($country, $orderBy, $reverse, $hideBroken, $offset, $limit);
 
 echo '<pre>';
 print_r($data);

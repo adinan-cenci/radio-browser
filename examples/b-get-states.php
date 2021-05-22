@@ -1,4 +1,8 @@
 <?php 
+/**
+ * Search states by name
+ */
+
 use AdinanCenci\RadioBrowser\RadioBrowser;
 
 //-----------------------------
@@ -13,10 +17,14 @@ require '../vendor/autoload.php';
 //-----------------------------
 
 $browser    = new RadioBrowser();
-$filter     = 'metal';
-$orderBy    = 'stationcount';
+$filter     = 'Texas';
+$country    = '';
+$orderBy    = 'name';
 $reverse    = true; // ( decrescent )
-$data       = $browser->getTags($filter, $orderBy, $reverse);
+$hideBroken = false;
+$offset     = 0;
+$limit      = 50;
+$data       = $browser->getStates($filter, $country, $orderBy, $reverse, $hideBroken);
 
 echo '<pre>';
 print_r($data);
