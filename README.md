@@ -108,12 +108,6 @@ The `::getBrokenStations($offset, $limit)` method returns stations that did not 
 
 <br><br>
 
-### Just get all stations
-
-The `::getStations()` method will return all stations.
-
-<br><br>
-
 ## Get stations by ...
 
 All the methods in this section share the following parameters:
@@ -125,6 +119,12 @@ All the methods in this section share the following parameters:
 | $hideBroken | bool   | false   | Do not list stations that failed the connection test.        |
 | $offset     | int    | 0       |                                                              |
 | $limit      | int    | 100000  |                                                              |
+
+<br><br>
+
+### Just get all stations
+
+The `::getStations($order, $reverse, $hideBroken, $offset, $limit)` method will return all stations.
 
 <br><br>
 
@@ -225,8 +225,8 @@ It receives a single associative array with the following keys available, all of
 
 | Key           | Type          | Default | Description                                                  |
 | ------------- | ------------- | ------- | ------------------------------------------------------------ |
-| $name         | string        | null    | MANDATORY, the name of the radio station. Max 400 chars.     |
-| $rl           | string        | null    | MANDATORY, the URL of the station.                           |
+| $name         | string        |         | MANDATORY, the name of the radio station. Max 400 chars.     |
+| $rl           | string        |         | MANDATORY, the URL of the station.                           |
 | $homePage     | string        | null    | the homepage URL of the station.                             |
 | $favIcon      | string        | null    | the URL of an image file (jpg or png).                       |
 | $countryCode  | string        | null    | The 2 letter countrycode of the country where the radio station is located. |
