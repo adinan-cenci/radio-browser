@@ -45,7 +45,7 @@ All the methods will return strings formated accordingly to the `$format` proper
 ### \AdinanCenci\RadioBrowser\RadioBrowser
 
 `RadioBrowser` is a convenient wrapper for `RarioBrowserApi` class, it has the same methods of the latter, 
-but instead of returning strings, either arrays or stdObjects will be returned, depending on the `$associative` property.
+but instead of returning strings, it will return either arrays or stdObjects, depending on the `$associative` property, this class only exists for conveniency sake.
 
 | Parameter    | Type         | Default                             | Description                                                  |
 | ------------ | ------------ | ----------------------------------- | ------------------------------------------------------------ |

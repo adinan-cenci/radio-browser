@@ -1,11 +1,9 @@
 <?php 
 namespace AdinanCenci\RadioBrowser;
 
-use \AdinanCenci\SimpleRequest\Request;
-
 /**
  * This is simply a wrapper for the RadioBrowserApi class, returning the data 
- * decoded in associative arrays ( or stdClass objects ) for the sake of convienency.
+ * decoded in associative arrays ( or stdClass objects ) for the sake of conveniency.
  */
 
 class RadioBrowser 

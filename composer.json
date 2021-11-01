@@ -4,7 +4,7 @@
     "type": "library", 
     "keywords": ["radio", "music"], 
     "license": "MIT",
-    "version": "2.0.0", 
+    "version": "2.0.1", 
     "authors": [
         {
             "name": "Adinan Cenci",
@@ -23,8 +23,8 @@
         }
     ],
     "require": {
-        "php": ">=7.0", 
-        "adinan-cenci/simple-request": "^1.1.0" 
+        "php": ">=7.0",
+        "guzzlehttp/guzzle": "^7.4" 
     }, 
     "autoload": {
         "psr-4": {

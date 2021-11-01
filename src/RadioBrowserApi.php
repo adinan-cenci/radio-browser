@@ -1,7 +1,7 @@
 <?php 
 namespace AdinanCenci\RadioBrowser;
 
-use \AdinanCenci\SimpleRequest\Request;
+use \GuzzleHttp\Client;
 
 class RadioBrowserApi 
 {
@@ -387,13 +387,11 @@ class RadioBrowserApi
 
     protected function fetch($url, $fields = array()) 
     {
-        $r = new Request($url);
-        $r->fields($fields);
+        $client = new Client();
 
-        $response = $r->request();
-
-        if ($response->code != 200) {
-            throw new \Exception('Error requesting "'.$response->url.'", code: '.$response->code, 1);
+        $response = $client->request('GET', $url, ['query' => $fields]);
+        if ($response->getStatusCode() != 200) {
+            throw new \Exception('Error requesting "'.$url.'", code: '.$response->getStatusCode(), 1);
         }
 
         return $response;
@@ -402,7 +400,7 @@ class RadioBrowserApi
     protected function fetchBody($url, $fields = array()) 
     {
         $response = $this->fetch($url, $fields);
-        return $response->body;
+        return $response->getBody();
     }
 
     //------------------------------------
