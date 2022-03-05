@@ -1,4 +1,8 @@
 <?php 
+/**
+ * In this example we'll see how to fetch the highest voted stations.
+ */
+
 use AdinanCenci\RadioBrowser\RadioBrowser;
 
 //-----------------------------
@@ -13,9 +17,10 @@ require '../vendor/autoload.php';
 //-----------------------------
 
 $browser    = new RadioBrowser();
-$offset     = 0;
-$limit      = 10;
-$data       = $browser->getStationsByVotes($offset, $limit);
+$offset     = 0;    // optional
+$limit      = 10;   // optional
+$hideBroken = true; // optional
+$data       = $browser->getStationsByVotes($offset, $limit, $hideBroken);
 
 echo '<pre>';
 print_r($data);

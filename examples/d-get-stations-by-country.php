@@ -1,4 +1,8 @@
 <?php 
+/**
+ * In this example we'll see how to find stations from a specific country.
+ */
+
 use AdinanCenci\RadioBrowser\RadioBrowser;
 
 //-----------------------------
@@ -13,12 +17,12 @@ require '../vendor/autoload.php';
 //-----------------------------
 
 $browser    = new RadioBrowser();
-$country    = 'Brazil';
-$orderBy    = 'clickcount';
-$reverse    = true; // ( decrescent )
-$hideBroken = false;
-$offset     = 0;
-$limit      = 10;
+$country    = 'Brazil';     // optional
+$orderBy    = 'clickcount'; // optional
+$reverse    = true;         // ( decrescent ) optional
+$hideBroken = false;        // optional
+$offset     = 0;            // optional
+$limit      = 10;           // optional
 $data       = $browser->getStationsByCountry($country, $orderBy, $reverse, $hideBroken, $offset, $limit);
 
 echo '<pre>';

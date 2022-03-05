@@ -203,13 +203,14 @@ class RadioBrowserApi
 
     //------------------------------------
 
-    public function getStationCheckResults($stationUuid = '', $lastCheckUuid = null, $seconds = 0) 
+    public function getStationCheckResults($stationUuid = '', $lastCheckUuid = null, $seconds = 0, $limit = 999999) 
     {
-        $url = $this->server.$this->format.'/checks/'.$stationUuid;
+        $url = $this->server.$this->format.'/checks' . ( $stationUuid ? '/' . $stationUuid : '');
 
         $variables = [
             'lastcheckuuid' => $lastCheckUuid, 
-            'seconds'       => $seconds
+            'seconds'       => $seconds, 
+            'limit'         => $limit
         ];
 
         return $this->fetchBody($url, $variables);
@@ -217,7 +218,7 @@ class RadioBrowserApi
 
     public function getStationClicks($stationUuid = '', $lastClickUuid = null, $seconds = 0) 
     {
-        $url = $this->server.$this->format.'/clicks/'.$stationUuid;
+        $url = $this->server.$this->format.'/clicks' . ( $stationUuid ? '/' . $stationUuid : '');
 
         $variables = [
             'lastclickuuid' => $lastClickUuid, 

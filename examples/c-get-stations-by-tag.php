@@ -1,4 +1,9 @@
 <?php 
+/**
+ * In this example we'll see how to find stations described with a 
+ * specific tag.
+ */
+
 use AdinanCenci\RadioBrowser\RadioBrowser;
 
 //-----------------------------
@@ -13,12 +18,12 @@ require '../vendor/autoload.php';
 //-----------------------------
 
 $browser    = new RadioBrowser();
-$tag        = 'power metal';
-$orderBy    = 'clickcount';
-$reverse    = true; // ( decrescent )
-$hideBroken = false;
-$offset     = 0;
-$limit      = 50;
+$tag        = 'power metal'; // optional
+$orderBy    = 'clickcount';  // optional
+$reverse    = true;          // ( decrescent ) optional
+$hideBroken = false;         // optional
+$offset     = 0;             // optional
+$limit      = 50;            // optional
 $data       = $browser->getStationsByTag($tag, $orderBy, $reverse, $hideBroken, $offset, $limit);
 
 echo '<pre>';

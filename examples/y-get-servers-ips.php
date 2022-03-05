@@ -1,6 +1,6 @@
 <?php 
 /**
- * List available servers IPs
+ * In this example we'll get a list of IPs from available servers.
  */
 
 use AdinanCenci\RadioBrowser\RadioBrowser;
